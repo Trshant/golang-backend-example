@@ -48,6 +48,7 @@ func (a *AccountHandler) HandlerGetAccountList(ctx *gin.Context) {
 		return
 	}
 
+	filter.Order = "Desc"
 	fmt.Println(filter)
 
 	accounts, err := a.accountUseCase.List(ctx, filter)

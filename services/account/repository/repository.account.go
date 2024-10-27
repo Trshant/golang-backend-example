@@ -35,13 +35,13 @@ func (c accountRepository) List(ctx context.Context, param domain.AccountListPar
 		FROM account
 			%s
 		ORDER BY account_number %s
-		LIMIT $1 OFFSET $2
+
 	`, filterQuery, param.Order))
 	if err != nil {
 		return nil, err
 	}
 
-	rows, err := stmt.QueryContext(ctx, param.Limit, param.Offset)
+	rows, err := stmt.QueryContext(ctx)
 	if err != nil {
 		return nil, err
 	}

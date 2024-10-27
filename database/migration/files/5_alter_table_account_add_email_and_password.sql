@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS account (
 
 ALTER TABLE account ADD COLUMN email varchar(255) NOT NULL DEFAULT '';
 ALTER TABLE account ADD COLUMN password varchar(255) NOT NULL DEFAULT '';
+ALTER TABLE account ADD CONSTRAINT email_unique UNIQUE(email);
 -- +migrate Down
 -- SQL section 'Down' is executed when this migration is rolled back
 DROP TABLE account;

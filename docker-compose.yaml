@@ -13,8 +13,9 @@ services:
       - "5432:5432"
     restart: always
   app:
-    container_name: github.com/oniharnantyo/golang-backend-example
-    image: oniharnantyo/github.com/oniharnantyo/golang-backend-example:latest
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
     ports:
       - "8000:8000"
     depends_on:
